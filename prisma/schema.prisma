@@ -6,15 +6,50 @@ generator client {
 }
 
 datasource db {
-    provider = "sqlite"
+    provider = "postgresql"
     url      = env("DATABASE_URL")
 }
 
-model Post {
-    id        Int      @id @default(autoincrement())
-    name      String
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+// Contact Form Submissions
+model ContactMessage {
+    id          String      @id @default(cuid())
+    name        String
+    email       String
+    subject     String
+    message     String
+    createdAt   DateTime    @default(now())
+    updatedAt   DateTime    @updatedAt
 
-    @@index([name])
+    @@map("contact_messages")
+}
+
+// Donation records (for tracking and receipts)
+model Donation {
+    id              String      @id @default(cuid())
+    donorName       String?
+    donorEmail      String?
+    amount           Float
+    currency        String      @default("INR")
+    paymentMethod   String      // "bank transfer", "razorpay", "upi", etc.
+    paymentId       String?     // Payment gateway transaction ID
+    status          String      @default("pending") // "pending", "completed", "failed"
+    message         String?     // Optional message from donor
+    isAnonymous     Boolean     @default(false)
+    receiptSent     Boolean     @default(false)
+    createdAt       DateTime    @default(now())
+    updatedAt       DateTime    @updatedAt
+
+    @@map("donations")
+}
+
+// Mewsletter subscriptions (future feature)
+model NewsletterSubscription {
+    id          String      @id @default(cuid())
+    email       String      @unique
+    name        String?
+    isActive    Boolean     @default(true)
+    createdAt   DateTime    @default(now())
+    updatedAt   DateTime    @updatedAt
+
+    @@map("applications")
 }

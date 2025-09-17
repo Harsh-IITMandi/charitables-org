@@ -1,53 +1,121 @@
 import Link from "next/link";
+import { pageContent } from "~/config/pages";
+import { siteConfig } from "~/config/site";
+import Button from "~/components/ui/Button";
 
-import { LatestPost } from "~/app/_components/post";
-import { api, HydrateClient } from "~/trpc/server";
-
-export default async function Home() {
-  const hello = await api.post.hello({ text: "from tRPC" });
-
-  void api.post.getLatest.prefetch();
-
+export default function HomePage() {
   return (
-    <HydrateClient>
-      <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-        <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-          <h1 className="text-5xl font-extrabold tracking-tight sm:text-[5rem]">
-            Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
-          </h1>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
-            <Link
-              className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 hover:bg-white/20"
-              href="https://create.t3.gg/en/usage/first-steps"
-              target="_blank"
-            >
-              <h3 className="text-2xl font-bold">First Steps →</h3>
-              <div className="text-lg">
-                Just the basics - Everything you need to know to set up your
-                database and authentication.
-              </div>
-            </Link>
-            <Link
-              className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 hover:bg-white/20"
-              href="https://create.t3.gg/en/introduction"
-              target="_blank"
-            >
-              <h3 className="text-2xl font-bold">Documentation →</h3>
-              <div className="text-lg">
-                Learn more about Create T3 App, the libraries it uses, and how
-                to deploy it.
-              </div>
-            </Link>
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <p className="text-2xl text-white">
-              {hello ? hello.greeting : "Loading tRPC query..."}
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              {pageContent.home.hero.title}
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+              {pageContent.home.hero.subtitle}
             </p>
+            <div className="space-x-4">
+              <Link href="/donate">
+                <Button size="lg" variant="inverse">
+                  Donate Now
+                </Button>
+              </Link>
+              <Link href="/application">
+                <Button size="lg" variant="inverse">
+                  Apply for Scholarship
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-3 gap-8">
+            {pageContent.home.stats.map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">
+                  {stat.value}
+                </div>
+                <div className="text-gray-600 text-sm md:text-base">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Mission Section */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Our Mission
+              </h2>
+              <p className="text-lg text-gray-600 mb-6">
+                {siteConfig.organization.mission}
+              </p>
+              <p className="text-lg text-gray-600 mb-8">
+                Since {siteConfig.organization.founded}, we've been committed to creating lasting change in communities worldwide through education, support, and empowerment.
+              </p>
+              <Link href="/about">
+                <Button>Learn More About Us</Button>
+              </Link>
+            </div>
+            <div className="bg-gray-200 h-64 md:h-80 rounded-lg flex items-center justify-center">
+              <span className="text-gray-500">Mission Image Placeholder</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How We Help Section */}
+      <section className="py-16 bg-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Financial Aid for Students
+          </h2>
+          <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+            We provide scholarships and emergency financial assistance to help students achieve their educational goals.
+          </p>
+          
+          <div className="flex justify-center space-x-8 mb-8">
+            <div className="text-center">
+              <div className="text-4xl mb-2">🎓</div>
+              <span className="text-sm font-medium text-gray-700">Scholarships</span>
+            </div>
           </div>
 
-          <LatestPost />
+          <Link href="/application">
+            <Button size="lg">Apply for Scholarship</Button>
+          </Link>
         </div>
-      </main>
-    </HydrateClient>
+      </section>
+
+      {/* Call to Action Section */}
+      <section className="py-16 bg-blue-600 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Ready to Make a Difference?
+          </h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto">
+            Join us in our mission to create educational opportunities for everyone. Every contribution makes a real impact.
+          </p>
+          <div className="space-x-4">
+            <Link href="/donate">
+              <Button size="lg" variant="outline">
+                Donate Now
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }
