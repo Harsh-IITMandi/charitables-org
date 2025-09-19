@@ -52,7 +52,7 @@ export default function ContactPage() {
               Contact Us
             </h1>
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-              Get in touch with our team. We're here to help and answer any questions you may have.
+              Get in touch with our team. We are here to help and answer any questions you may have.
             </p>
           </div>
         </div>
@@ -136,7 +136,7 @@ export default function ContactPage() {
                 {submitStatus === "success" && (
                   <div className="bg-green-50 border border-green-200 rounded-md p-4">
                     <p className="text-green-800">
-                      Thank you for your message! We'll get back to you within 24-48 hours.
+                      Thank you for your message! We will get back to you within 24-48 hours.
                     </p>
                   </div>
                 )}
@@ -264,7 +264,7 @@ export default function ContactPage() {
               },
               {
                 question: "How can I volunteer with your organization?",
-                answer: "We'd love to have you join our team! Contact us to learn about current volunteer opportunities."
+                answer: "We would love to have you join our team! Contact us to learn about current volunteer opportunities."
               }
             ].map((faq, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">

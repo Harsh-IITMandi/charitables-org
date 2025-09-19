@@ -18,7 +18,7 @@ export default function DonatePage() {
               {pageContent.donate.description}
             </p>
             <p className="text-lg mb-8 max-w-2xl mx-auto opacity-90">
-              Every donation, no matter the size, makes a real difference in someone's life.
+              Every donation, no matter the size, makes a real difference in someone is life.
             </p>
           </div>
         </div>
@@ -85,7 +85,7 @@ export default function DonatePage() {
               </div>
             )}
 
-            {/* Online Payment Option (Future Stripe Integration) */}
+            {/* Online Payment Option (Future Razorpay Integration) */}
             <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-100">
               <div className="text-center mb-6">
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -101,7 +101,7 @@ export default function DonatePage() {
                 </p>
               </div>
 
-              {featureConfig.payments.enableStripe ? (
+              {featureConfig.payments.enableRazorpay ? (
                 <div className="space-y-4">
                   <p className="text-gray-700 text-center">
                     Make a secure donation using your credit card or PayPal
@@ -110,7 +110,7 @@ export default function DonatePage() {
                     Donate Online
                   </Button>
                   <p className="text-xs text-gray-500 text-center">
-                    Powered by Stripe - Your payment information is secure
+                    Powered by Razorpay - Your payment information is secure
                   </p>
                 </div>
               ) : (
@@ -118,7 +118,7 @@ export default function DonatePage() {
                   <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
                     <p className="text-yellow-800 text-center">
                       <strong>Coming Soon!</strong><br />
-                      We're working on setting up secure online payments. For now, please use bank transfer or contact us directly.
+                      We are working on setting up secure online payments. For now, please use bank transfer or contact us directly.
                     </p>
                   </div>
                   <Link href="/contact">

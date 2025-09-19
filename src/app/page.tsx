@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { pageContent } from "~/config/pages";
 import { siteConfig } from "~/config/site";
 import Button from "~/components/ui/Button";
@@ -62,14 +63,19 @@ export default function HomePage() {
                 {siteConfig.organization.mission}
               </p>
               <p className="text-lg text-gray-600 mb-8">
-                Since {siteConfig.organization.founded}, we've been committed to creating lasting change in communities worldwide through education, support, and empowerment.
+                Since {siteConfig.organization.founded}, we have been committed to creating lasting change in communities worldwide through education, support, and empowerment.
               </p>
               <Link href="/about">
                 <Button>Learn More About Us</Button>
               </Link>
             </div>
-            <div className="bg-gray-200 h-64 md:h-80 rounded-lg flex items-center justify-center">
-              <span className="text-gray-500">Mission Image Placeholder</span>
+            <div className="relative h-64 md:h-80 rounded-lg overflow-hidden">
+              <Image
+                src="/images/about/mission-image.jpg"
+                alt="Our mission in action"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
         </div>

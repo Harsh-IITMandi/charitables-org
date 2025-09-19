@@ -19,13 +19,13 @@ export const siteConfig = {
 
     // Social Media Links
     socials: {
-        youtube: "XXXXXXX"
+        linkedIn: "X"
     },
 
     // Organization Info
     organization: {
         founded: "2025",
-        registrationNumber: "XXXXX",
+        registrationNumber: "182834756",
         mission: "To provide support for educational opportunities",
         vision: "A world where everyone has access to quality education"
     },

@@ -11,7 +11,7 @@ import { TRPCReactProvider } from "~/trpc/react";
 export const metadata: Metadata = {
   title: siteConfig.name,
   description: siteConfig.description,
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  icons: [{ rel: "icon", url: "/favicon-new.ico" }],
 };
 
 export default function RootLayout({

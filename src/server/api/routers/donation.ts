@@ -49,7 +49,7 @@ export const donationRouter = createTRPCRouter({
 
       return {
         totalDonations,
-        totalAmount: totalDonations._sum.amount || 0,
+        totalAmount: totalDonations._sum.amount ?? 0,
       };
     }),
 });

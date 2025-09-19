@@ -62,7 +62,7 @@ export default function ApplicationPage() {
                 Submit & Wait
               </h3>
               <p className="text-gray-600">
-                Submit your application and we'll review it within 2-3 weeks
+                Submit your application and we will review it within 2-3 weeks
               </p>
             </div>
           </div>

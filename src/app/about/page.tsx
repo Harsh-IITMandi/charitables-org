@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { pageContent } from "~/config/pages";
 import { siteConfig } from "~/config/site";
 
@@ -43,7 +44,7 @@ export default function AboutPage() {
               Our Story
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              From humble beginnings to meaningful impact - here's how we started and where we're going
+              From humble beginnings to meaningful impact - here is how we started and where we are going
             </p>
           </div>
 
@@ -59,11 +60,16 @@ export default function AboutPage() {
                 What started as a small group of volunteers helping local students with their studies has grown into a comprehensive support system that addresses the multifaceted challenges facing underserved communities.
               </p>
               <p className="text-gray-600">
-                Today, we're proud to be a registered {siteConfig.organization.registrationNumber} organization, working with communities, schools, and families to create opportunities for success.
+                Today, we are proud to be a registered {siteConfig.organization.registrationNumber} organization, working with communities, schools, and families to create opportunities for success.
               </p>
             </div>
-            <div className="bg-gray-200 h-64 md:h-80 rounded-lg flex items-center justify-center">
-              <span className="text-gray-500">Organization Story Image</span>
+            <div className="relative h-64 md:h-80 rounded-lg overflow-hidden">
+              <Image
+                src="/images/about/story-image.jpg"
+                alt="Our organization's story"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
         </div>
@@ -82,8 +88,13 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {pageContent.about.team.map((member, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-sm text-center border border-gray-100">
-                <div className="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-gray-500 text-sm">Photo</span>
+                <div className="relative w-24 h-24 mx-auto mb-4">
+                  <Image
+                    src={`${member.image}`}
+                    alt={member.name}
+                    fill
+                    className="rounded-full object-cover"
+                  />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
                   {member.name}

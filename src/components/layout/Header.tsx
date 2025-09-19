@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { navigationConfig } from "~/config/navigation";
@@ -14,8 +15,18 @@ export default function Header() {
                 <div className="flex justify-between items-center h-16">
                     {/* Logo */}
                     <div className="flex-shrink-0">
-                        <Link href="/" className="text-2xl font-bold text-blue-600">
-                            {siteConfig.name}
+                        <Link href="/" className="flex items-center space-x-3">
+                            <Image
+                                src="/images/icons/logo.png"
+                                alt={siteConfig.name}
+                                width={40}
+                                height={40}
+                                className="h-10 w-10"
+                                priority
+                            />
+                            <span className="text-xl font-bold text-blue-600">
+                                {siteConfig.name}
+                            </span>
                         </Link>
                     </div>
 

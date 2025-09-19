@@ -43,5 +43,7 @@ export const contactRouter = createTRPCRouter({
       const messages = await ctx.db.contactMessage.findMany({
         orderBy: { createdAt: "desc" },
       });
+
+      return messages;
     }),
 });

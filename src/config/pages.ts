@@ -22,19 +22,19 @@ export const pageContent = {
                 name: "John Doe",
                 role: "Founder",
                 bio: "John Doe is the founder of Charitables. He has been working in the field of education for...",
-                image: "/images/team/john-doe.jpg",
+                image: "/images/team/member-1.jpg",
             },
             {
                 name: "Jane Smith",
                 role: "Co-Founder",
                 bio: "Jane Smith is the co-founder of Charitables. She has been working in the field of education for...",
-                image: "/images/team/jane-smith.jpg",
+                image: "/images/team/member-2.jpg",
             },
             {
                 name: "Alex Johnson",
                 role: "Treasurer",
                 bio: "Alex Johnson is the treasurer at Charitables. He has been working in the field of education for...",
-                image: "/images/team/alex-johnson.jpg",
+                image: "/images/team/member-3.jpg",
             }
         ]
     },
@@ -42,7 +42,7 @@ export const pageContent = {
     application: {
         title: "Apply for Scholarship",
         description: "We're here to help students achieve their educational goals",
-        googleFormUrl: "https://forms.google.com/your-form-id",
+        googleFormUrl: "https://forms.gle/auvrCShoM8fHNnBx5",
         eligibility: [
         "Must be enrolled in an accredited educational institution",
         "Demonstrate financial need",
