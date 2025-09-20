@@ -1,6 +1,6 @@
 # Charitables.org - Full-Stack Charity Website
 
-🌐 **[Live Demo](https://charitables-org-harsh-iitmandi.vercel.app)** | Built with T3 Stack
+🌐 **[Live Demo](https://charitables-org.vercel.app)** | Built with T3 Stack
 
 ## Overview
 Modern charity website for Indian non-profits with donation management, student applications, and contact system. Features responsive design, type-safe APIs, and database integration.
